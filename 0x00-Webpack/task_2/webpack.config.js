@@ -6,8 +6,8 @@ module.exports = {
         main: path.resolve(__dirname, './js/dashboard_main.js'),
     },
     output: {
+        path: path.resolve(__dirname, 'public'),
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'public')
     },
     performance: {
         maxAssetSize: 1000000,
@@ -15,11 +15,12 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/i,
+                test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
             },
             {
-                test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+                test: /\.(gif|svg|png|jpg|jpeg)$/i,
+                type: 'asset/resource',
                 use: [
                     {
                         loader: ['file-loader', 'image-webpack-loader'],
