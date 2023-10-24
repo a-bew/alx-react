@@ -1,0 +1,12 @@
+/* Change the position and style of the counter text */
+#count {
+    font-weight: bold;
+    float: right;
+}
+
+/* Add a new element with the id "logo" */
+#logo {
+    width: 200px;
+    height: 200px;
+    /* You can also specify other styles as needed */
+}
