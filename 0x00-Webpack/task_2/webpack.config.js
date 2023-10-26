@@ -6,8 +6,8 @@ module.exports = {
         main: path.resolve(__dirname, './js/dashboard_main.js'),
     },
     output: {
-        path: path.resolve(__dirname, 'public'),
         filename: 'bundle.js',
+        path: path.resolve(__dirname, 'public'),
     },
     performance: {
         maxAssetSize: 1000000,
@@ -15,20 +15,20 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
+                test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
             {
-                test: /\.(gif|svg|png|jpg|jpeg)$/i,
-                type: 'asset/resource',
+                test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
                 use: [
                     {
-                        loader: ['file-loader', 'image-webpack-loader'],
+                        loader: 'file-loader', // Specify the loader as a string, not in an array
                         options: {
                             bypassOnDebug: true,
                             disable: true,
                         },
                     },
+                    'image-webpack-loader',
                 ],
             },
         ],
