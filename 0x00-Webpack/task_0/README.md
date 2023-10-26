@@ -1,1 +1,0 @@
-webpack basic setup
