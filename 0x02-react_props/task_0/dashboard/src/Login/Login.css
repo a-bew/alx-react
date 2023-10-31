@@ -1,0 +1,22 @@
+.App-body {
+    padding: 50px;
+    flex: 0 0 100%;
+    /* Let it fill the entire space horizontally */
+    min-height: calc(100vh - 70px - 125px);
+    /* excluding the height of the header */
+    border-top: 4px solid var(--background-color);
+
+    border-bottom: 4px solid var(--background-color);
+
+}
+
+.form-inputs {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+}
+
+.form-inputs .input input {
+    height: 1.4rem;
+    margin-left: 10px;
+}

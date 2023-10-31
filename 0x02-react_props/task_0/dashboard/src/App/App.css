@@ -1,0 +1,13 @@
+html {
+  --background-color: #E0354B;
+  --data-default: blue;
+  --data-urgent: red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  */

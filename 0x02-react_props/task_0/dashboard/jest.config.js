@@ -7,5 +7,5 @@ module.exports = {
         '\\.css$': 'jest-css-modules-transform',
         '^.+\\.(js|jsx)$': 'babel-jest'
     },
-    "setupFilesAfterEnv": ["<rootDir>/config/setupTests.js"]
+    "setupFilesAfterEnv": ["<rootDir>/config/setupTests.js"],
 }
