@@ -9,9 +9,9 @@ describe('Header', () => {
         shallow(<Header />);
     });
 
-    it('renders a div with class App-header', () => {
+    it('renders a img and a h1', () => {
         const wrapper = shallow(<Header />);
-        expect(wrapper.find('div.App-header')).toHaveLength(1);
+        expect(wrapper.find('img')).toHaveLength(1);
+        expect(wrapper.find('h1')).toHaveLength(1);
     });
-
 });

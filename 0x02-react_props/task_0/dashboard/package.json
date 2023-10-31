@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack build --config ./config/webpack.config.js",
     "start": "webpack serve --config ./config/webpack.config.js",
-    "test": "jest"
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "keywords": [],
   "author": "",

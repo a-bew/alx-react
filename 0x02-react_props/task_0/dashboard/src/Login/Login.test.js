@@ -9,9 +9,10 @@ describe('Login', () => {
         shallow(<Login />);
     });
 
-    it('renders a div with class App-body', () => {
+    it('renders 2 input tags and 2 label tags', () => {
         const wrapper = shallow(<Login />);
-        expect(wrapper.find('div.App-body')).toHaveLength(1);
+        expect(wrapper.find('input')).toHaveLength(2); // Ensure there are 2 input tags
+        expect(wrapper.find('label')).toHaveLength(2); // Ensure there are 2 label tags
     });
 
 });

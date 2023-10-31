@@ -10,9 +10,10 @@ describe('Footer', () => {
     });
 
 
-    it('renders a div with class App-footer', () => {
+    it('renders the text "Copyright"', () => {
         const wrapper = shallow(<Footer />);
-        expect(wrapper.find('div.App-footer')).toHaveLength(1);
+        expect(wrapper.text()).toContain('Copyright');
     });
+
 
 });
