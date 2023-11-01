@@ -1,0 +1,36 @@
+/* CourseList.css */
+
+/* Styles for the table */
+#CourseList {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border: 1px solid black;
+
+}
+
+/* Styles for table headers */
+#CourseList th {
+    /* background-color: #333;
+    color: white; */
+    font-weight: bold;
+    /* text-align: left; */
+    padding: 10px;
+    /* border: 1px solid black; */
+    border-collapse: collapse;
+
+}
+
+/* Styles for table headers */
+#CourseList th:not(th[colSpan="2"]) {
+    text-align: left;
+}
+
+/* Styles for table data cells */
+#CourseList td {
+    /* background-color: #f0f0f0; */
+    text-align: left;
+    padding: 10px;
+}
+
+/* Add more styles as needed */
