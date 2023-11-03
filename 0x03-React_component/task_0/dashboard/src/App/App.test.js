@@ -39,16 +39,14 @@ describe('App Component', () => {
         expect(wrapper.find(CourseList)).toHaveLength(0);
     });
 
-    describe('when isLoggedIn is true', () => {
-        it('Login component is not included', () => {
-            const wrapper = shallow(<App isLoggedIn={true} />);
-            expect(wrapper.find(Login)).toHaveLength(0);
-        });
+    it('Login component is not included', () => {
+        const wrapper = shallow(<App isLoggedIn={true} />);
+        expect(wrapper.find(Login)).toHaveLength(0);
+    });
 
-        it('CourseList component is included', () => {
-            const wrapper = shallow(<App isLoggedIn={true} />);
-            expect(wrapper.find(CourseList)).toHaveLength(1);
-        });
+    it('CourseList component is included', () => {
+        const wrapper = shallow(<App isLoggedIn={true} />);
+        expect(wrapper.find(CourseList)).toHaveLength(1);
     });
 
 });
