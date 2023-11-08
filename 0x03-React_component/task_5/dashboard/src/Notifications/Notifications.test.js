@@ -93,4 +93,61 @@ describe('Notifications', () => {
         // Restore the original console.log function
         consoleLogSpy.mockRestore();
     });
+
+    it('should not rerender when props are updated with the same list', () => {
+        const listNotifications = [
+            { id: 1, type: 'default', value: 'Notification 1' },
+            { id: 2, type: 'urgent', value: 'Notification 2' },
+        ];
+
+        const wrapper = shallow(
+            <Notifications listNotifications={listNotifications} />
+        );
+
+        const instance = wrapper.instance();
+        const shouldComponentUpdateSpy = jest.spyOn(
+            instance,
+            'shouldComponentUpdate'
+        );
+
+        // Update the component with the same list
+        wrapper.setProps({ listNotifications });
+
+        // Verify that shouldComponentUpdate is called but does not trigger a rerender
+        expect(shouldComponentUpdateSpy).toHaveBeenCalled();
+        expect(wrapper.isEmptyRender()).toBe(true);
+
+        shouldComponentUpdateSpy.mockRestore();
+    });
+
+    it('should rerender when props are updated with a longer list', () => {
+        const initialList = [
+            { id: 1, type: 'default', value: 'Notification 1' },
+            { id: 2, type: 'urgent', value: 'Notification 2' },
+        ];
+
+        const updatedList = [
+            ...initialList,
+            { id: 3, type: 'default', value: 'Notification 3' },
+        ];
+
+        const wrapper = shallow(
+            <Notifications listNotifications={initialList} />
+        );
+
+        const instance = wrapper.instance();
+        const shouldComponentUpdateSpy = jest.spyOn(
+            instance,
+            'shouldComponentUpdate'
+        );
+
+        // Update the component with a longer list
+        wrapper.setProps({ listNotifications: updatedList });
+
+        // Verify that shouldComponentUpdate is called and triggers a rerender
+        expect(shouldComponentUpdateSpy).toHaveBeenCalled();
+        expect(wrapper.isEmptyRender()).toBe(false);
+
+        shouldComponentUpdateSpy.mockRestore();
+    });
 });
