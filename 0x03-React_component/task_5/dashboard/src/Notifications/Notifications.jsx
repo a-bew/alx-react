@@ -19,13 +19,17 @@ class Notifications extends Component {
         super(props);
 
         this.markAsRead = this.markAsRead.bind(this);
-
     }
 
     // Define the markAsRead function
     markAsRead = (id) => {
         console.log(`Notification ${id} has been marked as read`);
     };
+
+    shouldComponentUpdate(nextProps) {
+        // Only update when the new listNotifications is longer than the previous one
+        return nextProps.listNotifications.length > this.props.listNotifications.length;
+    }
 
     render() {
         const { displayDrawer = true, listNotifications = [] } = this.props;
@@ -38,18 +42,18 @@ class Notifications extends Component {
                     <div className="Notifications">
                         <button
                             style={{
-                                color: "#3a3a3a",
-                                fontWeight: "bold",
-                                background: "none",
-                                border: "none",
-                                fontSize: "15px",
-                                position: "absolute",
-                                right: "2px",
-                                top: "2px",
-                                cursor: "pointer",
+                                color: '#3a3a3a',
+                                fontWeight: 'bold',
+                                background: 'none',
+                                border: 'none',
+                                fontSize: '15px',
+                                position: 'absolute',
+                                right: '2px',
+                                top: '2px',
+                                cursor: 'pointer',
                             }}
                             aria-label="Close"
-                            onClick={() => console.log("Close button has been clicked")}
+                            onClick={() => console.log('Close button has been clicked')}
                         >
                             <img src={closeIcon} alt="closeIcon" width="10px" />
                         </button>
@@ -82,4 +86,4 @@ Notifications.propTypes = {
     listNotifications: PropTypes.arrayOf(NotificationItemShape).isRequired,
 };
 
-export default Notifications
+export default Notifications;
