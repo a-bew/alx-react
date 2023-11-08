@@ -2,9 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import closeIcon from '../assets/close-icon.png';
 import './Notifications.css';
-import { NotificationItemShape } from './NotificationItem';
 import NotificationItem from './NotificationItem';
 import { getLatestNotification } from '../utils/utils';
+
+export const NotificationItemShape = PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    html: PropTypes.shape({
+        __html: PropTypes.string.isRequired,
+    }).isRequired,
+    type: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+});
 
 class Notifications extends Component {
     constructor(props) {
