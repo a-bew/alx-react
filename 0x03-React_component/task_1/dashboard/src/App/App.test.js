@@ -49,5 +49,35 @@ describe('App Component', () => {
         expect(wrapper.find(CourseList)).toHaveLength(1);
     });
 
+    it('calls logOut and shows an alert when Ctrl+H keys are pressed', () => {
+        // Create a mock logOut function
+        const logOutMock = jest.fn();
+
+        // Render the App component with the mock logOut function as a prop
+        const wrapper = shallow(<App isLoggedIn={true} logOut={logOutMock} />);
+
+        // Simulate a keydown event with Control and 'h' keys
+        const event = new KeyboardEvent('keydown', {
+            key: 'h',
+            ctrlKey: true,
+        });
+        window.dispatchEvent(event);
+
+        // Assert that the logOut function is called
+        expect(logOutMock).toHaveBeenCalled();
+
+        // Mock the window.alert function
+        const alert = jest.spyOn(window, 'alert');
+        alert.mockImplementation(() => { });
+
+        // Update the wrapper to re-render
+        wrapper.update();
+
+        // Assert that an alert with the specified message is shown
+        expect(alert).toHaveBeenCalledWith('Logging you out');
+
+        // Clean up the mock
+        alert.mockRestore();
+    });
 
 });
