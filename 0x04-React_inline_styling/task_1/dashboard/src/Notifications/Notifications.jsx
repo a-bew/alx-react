@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import closeIcon from '../assets/close-icon.png';
-import './Notifications.css';
 import NotificationItem from './NotificationItem';
-import { getLatestNotification } from '../utils/utils';
+import { CSSVariables } from '../CssVariables/CssVariables'
+
+import { StyleSheet, css } from 'aphrodite';
+
 
 export const NotificationItemShape = PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -17,7 +19,6 @@ export const NotificationItemShape = PropTypes.shape({
 class Notifications extends Component {
     constructor(props) {
         super(props);
-
         this.markAsRead = this.markAsRead.bind(this);
     }
 
@@ -39,7 +40,8 @@ class Notifications extends Component {
                 <div className="menuItem">Your notifications</div>
 
                 {displayDrawer && (
-                    <div className="Notifications">
+                    <div className={css(styles.notifications)}>
+
                         <button
                             style={{
                                 color: '#3a3a3a',
@@ -85,5 +87,15 @@ Notifications.propTypes = {
     displayDrawer: PropTypes.bool,
     listNotifications: PropTypes.arrayOf(NotificationItemShape).isRequired,
 };
+
+const styles = StyleSheet.create({
+    notifications: {
+        padding: '50px',
+        border: `2px dashed ${CSSVariables.backgroundColor}`,
+        top: '10px',
+        width: '95vw',
+        maxWidth: '500px',
+    },
+});
 
 export default Notifications;

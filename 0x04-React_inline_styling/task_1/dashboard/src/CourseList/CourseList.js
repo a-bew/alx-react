@@ -1,7 +1,7 @@
 import React from 'react';
 import CourseListRow from './CourseListRow';
 import PropTypes from 'prop-types'; // Import PropTypes
-import './CourseList.css';
+import { StyleSheet, css } from 'aphrodite';
 
 export const CourseShape = PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -9,10 +9,9 @@ export const CourseShape = PropTypes.shape({
     credit: PropTypes.number.isRequired,
 });
 
-
 function CourseList({ listCourses = [] }) {
     return (
-        <table id="CourseList">
+        <table className={css(styles.courseList)}>
             <thead>
                 <CourseListRow textFirstCell="Available courses" isHeader={true} />
                 <CourseListRow textFirstCell="Course name" textSecondCell="Credit" isHeader={true} />
@@ -42,5 +41,14 @@ CourseList.propTypes = {
 CourseList.defaultProps = {
     listCourses: [], // Default to an empty array if not passed by the parent component
 };
+
+const styles = StyleSheet.create({
+    courseList: {
+        width: '100%',
+        borderCollapse: 'collapse',
+        margin: '20px 0',
+        border: '1px solid black',
+    }
+});
 
 export default CourseList;

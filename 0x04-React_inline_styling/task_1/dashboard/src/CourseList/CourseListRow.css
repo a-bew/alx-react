@@ -14,6 +14,33 @@
     /* background-color: #f0f0f0; */
 }
 
+/* Styles for table headers */
+.course-list-header th,
+.course-list-data th {
+    /* background-color: #333;
+    color: white; */
+    font-weight: bold;
+    /* text-align: left; */
+    padding: 10px;
+    /* border: 1px solid black; */
+    border-collapse: collapse;
+}
+
+/* Styles for table headers */
+.course-list-header th:not(th[colSpan="2"]),
+.course-list-data th:not(th[colSpan="2"]) {
+    text-align: left;
+}
+
+/* Styles for table data cells */
+.course-list-header td,
+.course-list-data td {
+    /* background-color: #f0f0f0; */
+    text-align: left;
+    padding: 10px;
+}
+
+/* Add more styles as needed */
 /* Apply the CSS class conditionally based on the colSpan value */
 tr.course-list-header th[colSpan="2"] {
     /* Center the text horizontally and vertically */
