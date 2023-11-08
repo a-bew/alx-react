@@ -75,4 +75,5 @@ describe('App Component', () => {
         // Restore the original alert function
         window.alert = originalAlert;
     });
+
 });

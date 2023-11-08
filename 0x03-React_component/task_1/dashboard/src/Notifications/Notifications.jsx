@@ -5,14 +5,6 @@ import './Notifications.css';
 import { getLatestNotification } from '../utils/utils';
 import NotificationItem from './NotificationItem';
 
-// export const NotificationItemShape = PropTypes.shape({
-//     id: PropTypes.number.isRequired,
-//     html: PropTypes.objectOf({
-//         __html: PropTypes.string.isRequired,
-//     }).isRequired,
-//     type: PropTypes.string,
-//     value: PropTypes.string,
-// });
 export const NotificationItemShape = PropTypes.shape({
     id: PropTypes.number.isRequired,
     html: PropTypes.shape({
