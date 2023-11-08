@@ -1,0 +1,42 @@
+/* CourseListRow.css */
+
+/* Header row styles */
+.course-list-header {
+    /* background-color: #333; */
+    /* color: white; */
+    font-weight: bold;
+    border: none;
+    outline: none;
+}
+
+/* Data row styles */
+.course-list-data {
+    /* background-color: #f0f0f0; */
+}
+
+/* Apply the CSS class conditionally based on the colSpan value */
+tr.course-list-header th[colSpan="2"] {
+    /* Center the text horizontally and vertically */
+    text-align: center;
+    /* Center text horizontally */
+    vertical-align: middle;
+    /* Center text vertically */
+
+    /* Your other styles go here */
+}
+
+
+/* Apply the CSS class conditionally based on the colSpan value */
+tr.course-list-header th[colSpan="2"],
+tr.course-list-data td {
+    /* Remove borders from both header (th) and data (td) cells */
+    border: none;
+}
+
+/* Optionally, you can add borders to the top and bottom of the table rows for better separation */
+tr.course-list-header th {
+    border-top: 1px solid #ccc;
+    /* Add a top border to header and data cells */
+    border-bottom: 1px solid #ccc;
+    /* Add a bottom border to header and data cells */
+}
