@@ -1,0 +1,25 @@
+html {
+  --background-color: #E0354B;
+  --data-default: blue;
+  --data-urgent: red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  */
+
+.App-body {
+  padding: 50px;
+  flex: 0 0 100%;
+  /* Let it fill the entire space horizontally */
+  min-height: calc(100vh - 200px - 50px);
+  /* excluding the height of the header */
+  border-top: 4px solid var(--background-color);
+
+  border-bottom: 4px solid var(--background-color);
+
+}
