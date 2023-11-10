@@ -1,9 +1,9 @@
 import React from 'react';
 import CourseListRow from './CourseListRow';
 import PropTypes from 'prop-types'; // Import PropTypes
-import aphrodite, { css } from 'aphrodite';
+import { StyleSheet, css } from 'aphrodite';
 
-const styles = aphrodite.StyleSheet.create({
+const styles = StyleSheet.create({
     courseList: {
         width: '100%',
         borderCollapse: 'collapse',
