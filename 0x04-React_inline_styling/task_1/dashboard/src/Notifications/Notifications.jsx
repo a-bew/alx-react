@@ -6,6 +6,16 @@ import { CSSVariables } from '../CssVariables/CssVariables'
 
 import { StyleSheet, css } from 'aphrodite';
 
+const styles = StyleSheet.create({
+    notifications: {
+        padding: '50px',
+        border: `2px dashed ${CSSVariables.backgroundColor}`,
+        top: '10px',
+        width: '95vw',
+        maxWidth: '500px',
+    },
+});
+
 
 export const NotificationItemShape = PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -87,15 +97,5 @@ Notifications.propTypes = {
     displayDrawer: PropTypes.bool,
     listNotifications: PropTypes.arrayOf(NotificationItemShape).isRequired,
 };
-
-const styles = StyleSheet.create({
-    notifications: {
-        padding: '50px',
-        border: `2px dashed ${CSSVariables.backgroundColor}`,
-        top: '10px',
-        width: '95vw',
-        maxWidth: '500px',
-    },
-});
 
 export default Notifications;

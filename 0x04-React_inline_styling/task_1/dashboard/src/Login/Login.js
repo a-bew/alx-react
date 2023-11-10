@@ -1,6 +1,20 @@
 import React, { Fragment } from 'react'
 import { StyleSheet, css } from 'aphrodite';
 
+const styles = StyleSheet.create({
+    formInputs: {
+        display: 'flex',
+        gap: '2em',
+        alignItems: 'center',
+    },
+    input: {
+        input: {
+            height: '1.4rem',
+            marginLeft: '10px',
+        },
+    },
+});
+
 const Login = () => {
     return (
         <Fragment>
@@ -19,19 +33,5 @@ const Login = () => {
         </Fragment>
     );
 };
-
-const styles = StyleSheet.create({
-    formInputs: {
-        display: 'flex',
-        gap: '2em',
-        alignItems: 'center',
-    },
-    input: {
-        input: {
-            height: '1.4rem',
-            marginLeft: '10px',
-        },
-    },
-});
 
 export default Login

@@ -1,7 +1,16 @@
 import React from 'react';
 import CourseListRow from './CourseListRow';
 import PropTypes from 'prop-types'; // Import PropTypes
-import { StyleSheet, css } from 'aphrodite';
+import aphrodite, { css } from 'aphrodite';
+
+const styles = aphrodite.StyleSheet.create({
+    courseList: {
+        width: '100%',
+        borderCollapse: 'collapse',
+        margin: '20px 0',
+        border: '1px solid black',
+    }
+});
 
 export const CourseShape = PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -42,13 +51,5 @@ CourseList.defaultProps = {
     listCourses: [], // Default to an empty array if not passed by the parent component
 };
 
-const styles = StyleSheet.create({
-    courseList: {
-        width: '100%',
-        borderCollapse: 'collapse',
-        margin: '20px 0',
-        border: '1px solid black',
-    }
-});
 
 export default CourseList;
