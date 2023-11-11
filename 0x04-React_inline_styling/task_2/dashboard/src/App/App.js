@@ -1,11 +1,29 @@
 import React, { Component, Fragment } from 'react';
-import './App.css';
 import Login from '../Login/Login';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Notifications from '../Notifications/Notifications';
 import CourseList from '../CourseList/CourseList';
 import { getLatestNotification } from '../utils/utils';
+import { StyleSheet, css } from 'aphrodite';
+import { CSSVariables } from '../CssVariables/CssVariables'
+
+
+const styles = StyleSheet.create({
+  app: {
+    // Define styles for your App component here
+    // backgroundColor: CSSVariables.backgroundColor,
+  },
+  appBody: {
+    // Define styles for the App body here
+    padding: '50px',
+    flex: '0 0 100%',
+    minHeight: 'calc(100vh - 200px - 50px)',
+    borderTop: `4px solid ${CSSVariables.backgroundColor}`,
+    borderBottom: `4px solid ${CSSVariables.backgroundColor}`,
+  },
+  // Define other styles as needed
+});
 
 class App extends Component {
   constructor(props) {
@@ -66,9 +84,9 @@ class App extends Component {
         <div style={{ position: 'absolute', right: 0 }}>
           <Notifications displayDrawer={false} listNotifications={this.state.listNotifications} />
         </div>
-        <div className="App">
+        <div className={css(styles.app)}>
           <Header />
-          <div className="App-body">
+          <div className={css(styles.appBody)}>
             {this.state.isLoggedIn ? <CourseList listCourses={this.state.listCourses} /> : <Login />}
           </div>
           <Footer />
