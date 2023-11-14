@@ -1,0 +1,12 @@
+.App-footer {
+    flex: 0 0 100%;
+    /* Let it fill the entire space horizontally */
+    min-height: 50px;
+    /* background-color: ; */
+    /* position: absolute; */
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
