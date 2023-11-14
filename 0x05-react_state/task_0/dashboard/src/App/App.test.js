@@ -86,4 +86,25 @@ describe('App Component', () => {
         window.alert = originalAlert;
     });
 
+    describe('testing state of App.js', () => {
+        it('displayDrawer initial value should be set to false', () => {
+            const wrapper = mount(<App />);
+
+            expect(wrapper.state().displayDrawer).toBe(false);
+        });
+
+        it('should set displayDrawer to true after calling handleDisplayDrawer', () => {
+            const wrapper = shallow(<App />);
+            wrapper.instance().handleDisplayDrawer();
+
+            expect(wrapper.state().displayDrawer).toBe(true);
+        });
+
+        it('should set displayDrawer to false after calling handleHideDrawer', () => {
+            const wrapper = shallow(<App />);
+            wrapper.instance().handleHideDrawer();
+
+            expect(wrapper.state().displayDrawer).toBe(false);
+        });
+    });
 });
