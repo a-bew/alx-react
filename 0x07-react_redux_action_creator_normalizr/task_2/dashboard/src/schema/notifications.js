@@ -1,10 +1,22 @@
 // notifications.js
 
-import * as notificationsData from './notifications.json';
+import * as notificationsData from '../../notifications.json';
+import { normalize, schema } from 'normalizr';
 
-export function getAllNotificationsByUser(userId) {
-    return notificationsData.filter(notification => notification.author === userId);
-}
+
+export const getAllNotificationsByUser = (userId) => {
+    const notifications = normalized.entities.notifications;
+    const messages = normalized.entities.messages;
+    const notificationsByUser = [];
+
+    for (const property in notifications) {
+        if (notifications[property].author === userId) {
+            notificationsByUser.push(messages[notifications[property].context]);
+        }
+    }
+
+    return notificationsByUser;
+};
 
 const user = new schema.Entity('users');
 
