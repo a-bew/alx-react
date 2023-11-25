@@ -18,10 +18,12 @@ describe('Login', () => {
         shallow(<Login />);
     });
 
-    it('renders 2 input tags and 2 label tags', () => {
+    it('renders 3 input tags and 2 label tags', () => {
         const wrapper = shallow(<Login />);
-        expect(wrapper.find('input')).toHaveLength(2); // Ensure there are 2 input tags
+        expect(wrapper.find('input')).toHaveLength(3); // Ensure there are 2 input tags
         expect(wrapper.find('label')).toHaveLength(2); // Ensure there are 2 label tags
     });
 
+
+    
 });

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { StyleSheet, css } from 'aphrodite';
 import { CSSVariables } from '../CssVariables/CssVariables';
 
@@ -27,22 +27,56 @@ const styles = StyleSheet.create({
     }
 });
 
+
 const Login = () => {
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [enableSubmit, setEnableSubmit] = useState(false);
+
+    const handleLoginSubmit = (e) => {
+        e.preventDefault();
+        setIsLoggedIn(true);
+    };
+
+    handleLoginSubmit = () => {
+        setIsLoggedIn(true)
+    }
+
+    const handleChangeEmail = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const handleChangePassword = (e) => {
+        setPassword(e.target.value);
+    }
+
+    useEffect(() => {
+        if (email != '' && password != '') {
+            setEnableSubmit(true);
+        } else {
+            if (enableSubmit != false) {
+                setEnableSubmit(false);
+            }
+        }
+    }, [email, password]);
+
     return (
         <Fragment>
             <h2 className={css(styles.h2)}>
                 Login to access the full dashboard</h2>
-            <section className={css(styles.formInputs, styles.mobile)}>
+            <form className={css(styles.formInputs, styles.mobile)} onSubmit={handleLoginSubmit}>
                 <section className={css(styles.input)}>
                     <label htmlFor="email">Email:</label>
-                    <input type="email" name="email" id="email" />
+                    <input type="email" name="email" id="email" value={email} onChange={handleChangeEmail} />
                 </section>
                 <section className={css(styles.input)}>
                     <label htmlFor="password">Password: </label>
-                    <input type="password" name="password" id="password" />
+                    <input type="password" name="password" id="password" value={password} onChange={handleChangePassword} />
                 </section>
-                <button>OK</button>
-            </section>
+                <input type='submit' disabled={!enableSubmit}>OK</input>
+            </form>
             <h2 className={css(styles.h2)}>
                 New From The School</h2>
             <p>loreLabore sint velit excepteur duis ut. Do deserunt ad eiusmod ut cupidatat minim tempor. Mollit duis ut sit voluptate ipsum adipisicing do. Irure voluptate cupidatat non veniam proident. In quis nostrud sint sint labore veniam deserunt commodo velit tempor et. Incididunt eiusmod excepteur tempor sint pariatur tempor cupidatat.

@@ -46,6 +46,7 @@ class App extends Component {
   }
 
   isLoggedIn = this.props.isLoggedIn;
+
   listNotifications = [
     {
       id: 1,
@@ -66,6 +67,7 @@ class App extends Component {
       value: 'New notification',
     },
   ];
+
   listCourses = [
     { id: 1, name: 'ES6', credit: 60 },
     { id: 2, name: 'Webpack', credit: 20 },

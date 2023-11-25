@@ -3,12 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App/App';
 // import { Notifications } from './Notifications/Notifications';
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <App />
-        {/* <div className='root-notifications'>
-            <Notifications />
-        </div> */}
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+      <App />
+    </React.StrictMode>
+  );
